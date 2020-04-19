@@ -25,14 +25,7 @@ public class Startup
         {
             var connectionString = Configuration.GetConnectionString("MvcMovieContext");
 
-            if (Environment.IsDevelopment())
-            {
-                options.UseSqlite(connectionString);
-            }
-            else
-            {
-                options.UseSqlServer(connectionString);
-            }
+            options.UseSqlServer(connectionString);
         });
     }
 
