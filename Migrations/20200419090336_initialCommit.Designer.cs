@@ -9,8 +9,8 @@ using MvcMovie.Data;
 namespace MvcMovie.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
-    [Migration("20200417171828_AddFieldRating")]
-    partial class AddFieldRating
+    [Migration("20200419090336_initialCommit")]
+    partial class initialCommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,19 +25,25 @@ namespace MvcMovie.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("varchar(30)")
+                        .HasMaxLength(30);
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Rating")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("varchar(5)")
+                        .HasMaxLength(5);
 
                     b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("varchar(60)")
+                        .HasMaxLength(60);
 
                     b.HasKey("Id");
 

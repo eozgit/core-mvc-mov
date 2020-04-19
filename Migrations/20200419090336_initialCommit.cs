@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MvcMovie.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialCommit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,11 @@ namespace MvcMovie.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Title = table.Column<string>(nullable: true),
-                    ReleaseDate = table.Column<DateTime>(nullable: false),
-                    Genre = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(type: "varchar(60)", maxLength: 60, nullable: false),
+                    ReleaseDate = table.Column<DateTime>(type: "date", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    Genre = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
+                    Rating = table.Column<string>(type: "varchar(5)", maxLength: 5, nullable: false)
                 },
                 constraints: table =>
                 {
